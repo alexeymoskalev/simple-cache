@@ -1,17 +1,17 @@
 package simple_cache1
 
 type Cache struct {
-	items map[string]string
+	items map[string]interface{}
 }
 
 func New() *Cache {
 	return &Cache{
-		make(map[string]string),
+		make(map[string]interface{}),
 	}
 }
 
-func (c *Cache) Set(key, value interface{}) {
-	c.items[key.(string)] = value.(string)
+func (c *Cache) Set(key string, value interface{}) {
+	c.items[key] = value
 }
 
 func (c *Cache) Get(key string) interface{} {
